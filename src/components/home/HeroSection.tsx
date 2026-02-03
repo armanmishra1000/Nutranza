@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function HeroSection() {
     return (
         <section className="relative overflow-hidden md:py-20 py-16 ">
-            <div className="max-w-7xl mx-auto px-4">
+            <div className="container">
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center w-full">
 
@@ -15,7 +15,7 @@ export default function HeroSection() {
                         </p>
 
                         {/* Headline */}
-                        <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold text-neutral-900 font-heading">
+                        <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold text-neutral-900">
                             Clean Nutrition for a <br className="hidden md:block" />
                             <span className="text-primary">Premium</span> Lifestyle
                         </h1>

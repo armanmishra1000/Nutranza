@@ -18,7 +18,7 @@ export default function NutritionalBenefits() {
 
                         <h2 className="text-4xl md:text-5xl font-heading font-bold leading-tight">
                             The Science of <br />
-                            <span className="text-[var(--color-primary)]">Uncompromising Purity.</span>
+                            <span className="text-primary">Uncompromising Purity.</span>
                         </h2>
 
                         <p className="text-lg text-neutral-400 leading-relaxed font-sans max-w-md">
@@ -42,7 +42,7 @@ export default function NutritionalBenefits() {
                     {/* Right: Stats Grid */}
                     <div className="grid grid-cols-2 gap-4">
                         {/* Stat Card 1 */}
-                        <div className="p-8 rounded-3xl bg-[var(--color-primary)] text-neutral-900 flex flex-col justify-between aspect-square">
+                        <div className="p-8 rounded-3xl bg-primary text-neutral-900 flex flex-col justify-between aspect-square">
                             <span className="text-6xl font-black tracking-tighter">30g</span>
                             <span className="font-bold text-lg leading-tight opacity-80">High Quality <br /> Protein Per Serving</span>
                         </div>
@@ -61,7 +61,7 @@ export default function NutritionalBenefits() {
                         {/* Stat Card 3 */}
                         <div className="p-8 rounded-3xl bg-neutral-800 text-white flex flex-col justify-between aspect-square border border-white/10">
                             <div>
-                                <span className="block text-4xl font-black mb-1 text-[var(--color-secondary)]">Zero</span>
+                                <span className="block text-4xl font-black mb-1 text-secondary">Zero</span>
                                 <span className="font-bold text-sm text-neutral-400">Preservatives or Artificial Flavors</span>
                             </div>
                             <div className="w-10 h-1 rounded-full bg-neutral-700" />

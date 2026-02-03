@@ -4,11 +4,12 @@ import { useState, useMemo } from 'react';
 import { products } from '@/data/products';
 import ProductGrid from '@/components/products/ProductGrid';
 import ProductFilter from '@/components/products/ProductFilter';
-import { Search } from 'lucide-react';
+import { Dot, Search, X } from 'lucide-react';
 
 export default function ProductsPage() {
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+    const [appliedCategories, setAppliedCategories] = useState<string[]>([]);
 
     const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
 
@@ -20,15 +21,27 @@ export default function ProductsPage() {
         }
     };
 
+    const handleApplyFilters = () => {
+        setAppliedCategories([...selectedCategories]);
+        setIsMobileFilterOpen(false); // Close mobile drawer on apply
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    const handleResetFilters = () => {
+        setSelectedCategories([]);
+        setAppliedCategories([]);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
     const filteredProducts = useMemo(() => {
         return products.filter((product) => {
             // Search
             if (searchQuery && !product.name.toLowerCase().includes(searchQuery.toLowerCase())) {
                 return false;
             }
-            // Categories - Strict mapping based on user request
-            if (selectedCategories.length > 0) {
-                const matchesCategory = selectedCategories.some(cat => {
+            // Categories - Uses appliedCategories for deferred filtering (View Results)
+            if (appliedCategories.length > 0) {
+                const matchesCategory = appliedCategories.some(cat => {
                     // Logic to map the customized specific labels to actual product data
                     if (cat === 'Peanut butter') return product.subCategory === 'Peanut Butter';
                     if (cat === 'Protein Oats') return product.subCategory === 'Oats' && product.name.toLowerCase().includes('protein');
@@ -43,100 +56,107 @@ export default function ProductsPage() {
 
             return true;
         });
-    }, [searchQuery, selectedCategories]);
+    }, [searchQuery, appliedCategories]);
 
     return (
-        <div className="min-h-screen bg-white pb-20">
-            <main className="flex w-full max-w-[1600px] mx-auto px-4 gap-8">
+        <div className=" bg-white py-20">
+            <main className="container">
 
-                {/* Sidebar */}
-                <aside className={`fixed inset-y-0 left-0 z-40 w-72 bg-white border-r border-gray-100 transform transition-transform duration-300 ease-in-out lg:relative lg:translate-x-0 lg:bg-transparent lg:border-0 lg:w-72 lg:block ${isMobileFilterOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-                    <div className="h-full overflow-y-auto lg:h-auto lg:overflow-visible p-4 lg:p-0">
-                        <div className="lg:hidden flex justify-end mb-4">
-                            <button onClick={() => setIsMobileFilterOpen(false)} className="p-2 text-gray-500">
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
-                            </button>
-                        </div>
+                <div className='flex items-start gap-8'>
+
+                    {/* Desktop Sticky Sidebar */}
+                    <aside className="hidden lg:block w-72 shrink-0 sticky top-28 h-[calc(100vh-8rem)] overflow-hidden">
                         <ProductFilter
                             selectedCategories={selectedCategories}
                             toggleCategory={(c) => toggleFilter(c, selectedCategories, setSelectedCategories)}
+                            resetFilters={handleResetFilters}
+                            onApply={handleApplyFilters}
+                            className="bg-transparent rounded-xl border border-gray-200 overflow-hidden"
                         />
-                    </div>
-                </aside>
+                    </aside>
 
-                {/* Overlay for mobile filter */}
-                {isMobileFilterOpen && (
-                    <div className="fixed inset-0 bg-black/50 z-30 lg:hidden" onClick={() => setIsMobileFilterOpen(false)} />
-                )}
+                    {/* Mobile Filter Drawer */}
+                    <div className={`fixed inset-0 z-50 lg:hidden transition-opacity duration-300 ${isMobileFilterOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+                        {/* Backdrop */}
+                        <div
+                            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+                            onClick={() => setIsMobileFilterOpen(false)}
+                        />
 
-                {/* Main Content */}
-                <div className="flex-1 min-w-0">
-                    {/* Header */}
-                    <div className="flex flex-col gap-6 mb-8">
-                        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
-                            <div className="flex flex-col gap-1">
-                                <h1 className="text-3xl lg:text-4xl font-heading font-black text-neutral-900 leading-tight tracking-tight">
-                                    Export Catalog
-                                </h1>
-                                <p className="text-gray-500 text-base">
-                                    Browse our premium range of health food exports tailored for global markets.
-                                </p>
-                            </div>
-                            <div className="hidden lg:block text-right">
-                                <p className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">Global Support</p>
-                                <p className="text-sm font-bold text-neutral-900">+91 22 4567 8900</p>
-                            </div>
-                        </div>
-
-                        {/* Search & Actions Bar */}
-                        <div className="flex flex-col lg:flex-row gap-4 items-stretch lg:items-center">
-                            {/* Search Input */}
-                            <div className="relative flex-1">
-                                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <Search className="text-gray-400 w-5 h-5" />
-                                </div>
-                                <input
-                                    type="text"
-                                    className="block w-full rounded-lg border-0 bg-white py-3 pl-10 pr-4 text-neutral-900 placeholder-gray-400 ring-1 ring-inset ring-gray-200 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
-                                    placeholder="Search by SKU, ingredient, or product name..."
-                                    value={searchQuery}
-                                    onChange={(e) => setSearchQuery(e.target.value)}
-                                />
-                            </div>
-
-                            {/* Filters/Sort Row */}
-                            <div className="flex gap-3">
-                                <button
-                                    className="lg:hidden flex items-center justify-center gap-2 rounded-lg bg-white px-4 py-3 text-sm font-bold text-neutral-900 ring-1 ring-inset ring-gray-200"
-                                    onClick={() => setIsMobileFilterOpen(true)}
-                                >
-                                    <Search className="w-5 h-5" />
-                                    Filters
-                                </button>
-
-                                <div className="relative flex items-center gap-2 min-w-[180px]">
-                                    <span className="text-sm text-gray-500 whitespace-nowrap hidden sm:inline">Sort by:</span>
-                                    <select className="block w-full rounded-lg border-0 bg-white py-3 pl-3 pr-8 text-neutral-900 ring-1 ring-inset ring-gray-200 focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6 font-bold cursor-pointer">
-                                        <option>Popularity</option>
-                                        <option>Price: Low to High</option>
-                                        <option>Price: High to Low</option>
-                                        <option>Newest Arrivals</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Stats Bar */}
-                        <div className="flex items-center gap-2">
-                            <span className="inline-flex items-center rounded-md bg-white px-2 py-1 text-xs font-bold text-gray-600 ring-1 ring-inset ring-gray-500/10">
-                                {filteredProducts.length} Products Found
-                            </span>
-                            <span className="text-xs text-gray-400">•</span>
-                            <span className="text-xs text-gray-500">Showing 1-{filteredProducts.length}</span>
-                        </div>
+                        {/* Drawer Panel */}
+                        <aside
+                            className={`absolute inset-y-0 left-0 w-80 max-w-[85vw] transform transition-transform duration-300 ease-in-out ${isMobileFilterOpen ? 'translate-x-0' : '-translate-x-full'}`}
+                        >
+                            <ProductFilter
+                                selectedCategories={selectedCategories}
+                                toggleCategory={(c) => toggleFilter(c, selectedCategories, setSelectedCategories)}
+                                resetFilters={handleResetFilters}
+                                onApply={handleApplyFilters}
+                                onClose={() => setIsMobileFilterOpen(false)}
+                                className="h-full shadow-2xl rounded-none"
+                            />
+                        </aside>
                     </div>
 
-                    <ProductGrid products={filteredProducts} />
+                    {/* Content Overlay removed - integrated into drawer */}
+
+                    {/* Main Content */}
+                    <div className="flex-1 h-full min-w-0">
+                        {/* Header */}
+                        <div className="flex flex-col gap-6 mb-8">
+                            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
+                                <div className="space-y-2">
+                                    <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold text-neutral-900">
+                                        Export Catalog
+                                    </h1>
+                                    <p className="text-neutral-700 text-lg md:text-xl leading-relaxed">
+                                        Browse our premium range of health food exports tailored for global markets.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Search & Actions Bar */}
+                            <div className="flex flex-col lg:flex-row gap-4 items-stretch lg:items-center">
+                                {/* Search Input */}
+                                <div className="relative flex-1">
+                                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                        <Search className="text-gray-500 w-5 h-5" />
+                                    </div>
+                                    <input
+                                        type="text"
+                                        className="block w-full rounded-full py-3 pl-12 pr-4 border border-gray-200 bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-secondary/20 focus:border-secondary"
+                                        placeholder="Search by SKU, ingredient, or product name..."
+                                        value={searchQuery}
+                                        onChange={(e) => setSearchQuery(e.target.value)}
+                                    />
+                                </div>
+
+                                {/* Filters/Sort Row */}
+                                <div className="flex items-center gap-3">
+                                    <button
+                                        className="lg:hidden flex items-center justify-center gap-2 rounded-lg bg-white px-4 py-3 text-sm font-bold text-neutral-900 ring-1 ring-inset ring-gray-200"
+                                        onClick={() => setIsMobileFilterOpen(true)}
+                                    >
+                                        <Search className="w-5 h-5" />
+                                        Filters
+                                    </button>
+
+
+                                </div>
+                            </div>
+
+                            {/* Stats Bar */}
+                            <div className="flex items-center gap-2">
+                                <span className="inline-flex items-center text-sm font-semibold text-secondary ">
+                                    {filteredProducts.length} Products Found
+                                </span>
+                                <Dot size={20} />
+                                <span className="text-sm font-semibold text-neutral-900">Showing 1-{filteredProducts.length}</span>
+                            </div>
+                        </div>
+
+                        <ProductGrid products={filteredProducts} />
+                    </div>
                 </div>
             </main>
         </div>

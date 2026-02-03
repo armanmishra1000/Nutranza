@@ -28,7 +28,7 @@ export default function FeaturesSection() {
         <section className="py-24 bg-white dark:bg-neutral-950">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center max-w-2xl mx-auto mb-16">
-                    <span className="text-[var(--color-primary)] font-bold tracking-wider uppercase text-sm">Why Partner With Us</span>
+                    <span className="text-primary font-bold tracking-wider uppercase text-sm">Why Partner With Us</span>
                     <h2 className="mt-2 text-3xl md:text-5xl font-heading font-bold text-neutral-900 dark:text-white">
                         Built for Global Scale
                     </h2>
@@ -41,9 +41,9 @@ export default function FeaturesSection() {
                     {FEATURES.map((feature, index) => (
                         <div
                             key={index}
-                            className="group p-8 rounded-3xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 hover:border-[var(--color-primary)] transition-colors duration-300"
+                            className="group p-8 rounded-3xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 hover:border-primary transition-colors duration-300"
                         >
-                            <div className="w-14 h-14 rounded-2xl bg-[var(--color-primary)]/10 text-[var(--color-primary)] flex items-center justify-center mb-6 group-hover:bg-[var(--color-primary)] group-hover:text-black transition-all duration-300">
+                            <div className="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-black transition-all duration-300">
                                 <feature.icon className="w-7 h-7" />
                             </div>
                             <h3 className="text-xl font-bold text-neutral-900 dark:text-white mb-3">

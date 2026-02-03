@@ -164,10 +164,10 @@ export const products: Product[] = [
             netWeight: '500g'
         },
         goals: ['Energy', 'Taste'],
-        ingredients: 'Roasted Peanut (79%), Chia Seeds, Milk Solid (SMP&WMP), Sesame Oil, Mango Flavour, Emulsifier E471 (100% Plant Based), Sugar, Antioxidant 322(1). Contains Added Identical Flavour (Mango)',
+        ingredients: 'Roasted Peanut (79%), Rice Crisp, Milk Solid (SMP&WMP), Sesame Oil, Mango Flavour, Emulsifier E471 (100% Plant Based), Sugar, Antioxidant 322(1). Contains Added Identical Flavour (Mango)',
         allergenInfo: 'Contains Peanuts',
         nutrition: {
-            "Energy": "589.00 Kcal",
+            "Energy": "589.00",
             "Protein": "27.00g",
             "Carbohydrate": "19.00g",
             "Fiber": "7.00g",

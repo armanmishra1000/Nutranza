@@ -56,14 +56,14 @@ export default function AboutSection() {
                                 "Global Logistics"
                             ].map((item, index) => (
                                 <div key={index} className="flex items-center gap-3 p-4 rounded-xl bg-neutral-50 border border-neutral-100 hover:border-neutral-200 transition-colors">
-                                    <div className="w-2 h-2 rounded-full bg-[var(--color-secondary)]" />
+                                    <div className="w-2 h-2 rounded-full bg-secondary" />
                                     <span className="text-neutral-900 font-bold">{item}</span>
                                 </div>
                             ))}
                         </div>
 
                         <div className="pt-6">
-                            <button className="text-neutral-900 font-bold border-b-2 border-neutral-900 hover:text-[var(--color-secondary)] hover:border-[var(--color-secondary)] transition-all pb-1">
+                            <button className="text-neutral-900 font-bold border-b-2 border-neutral-900 hover:text-secondary hover:border-secondary transition-all pb-1">
                                 Discover Our Process
                             </button>
                         </div>

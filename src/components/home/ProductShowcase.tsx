@@ -53,14 +53,14 @@ export default function ProductShowcase() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-12">
                     <div>
-                        <span className="text-[var(--color-secondary)] font-bold tracking-wider uppercase text-sm">Our Collection</span>
+                        <span className="text-secondary font-bold tracking-wider uppercase text-sm">Our Collection</span>
                         <h2 className="mt-2 text-4xl md:text-5xl font-heading font-bold text-neutral-900">
-                            Curated for <span className="text-[var(--color-primary)]">Excellence</span>
+                            Curated for <span className="text-primary">Excellence</span>
                         </h2>
                     </div>
                     <Link
                         href="/products"
-                        className="hidden md:flex items-center gap-2 text-neutral-900 font-bold hover:text-[var(--color-secondary)] transition-colors"
+                        className="hidden md:flex items-center gap-2 text-neutral-900 font-bold hover:text-secondary transition-colors"
                     >
                         View All Products <ArrowUpRight className="w-5 h-5" />
                     </Link>
@@ -79,11 +79,11 @@ export default function ProductShowcase() {
                             />
 
                             {/* Clean White Overlay on Hover */}
-                            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
+                            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-black/60 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
 
                             <div className="absolute bottom-0 left-0 p-6 w-full">
-                                <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold mb-2 shadow-sm ${product.category === 'Bestseller' ? 'bg-[var(--color-primary)] text-black' :
-                                        product.category === 'Trending' ? 'bg-orange-500 text-white' : 'bg-white/90 backdrop-blur-sm text-neutral-900'
+                                <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold mb-2 shadow-sm ${product.category === 'Bestseller' ? 'bg-primary text-black' :
+                                    product.category === 'Trending' ? 'bg-orange-500 text-white' : 'bg-white/90 backdrop-blur-sm text-neutral-900'
                                     }`}>
                                     {product.category}
                                 </span>
