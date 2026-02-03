@@ -4,6 +4,8 @@ export interface ProductSpecs {
     moq: string; // Minimum Order Quantity
     packaging?: string;
     netWeight?: string;
+    hsCode?: string; // HS Code for export
+    casePack?: string; // Case packaging info
 }
 
 export interface Product {
@@ -13,6 +15,8 @@ export interface Product {
     category: string;
     subCategory?: string;
     image: string; // URL path
+    images?: string[]; // Array of images for gallery
+    sku?: string; // SKU code
     description: string;
     origin: string;
     certifications: string[];
@@ -38,9 +42,16 @@ export const products: Product[] = [
         id: 'p1',
         name: 'High Protein Chocolate Oats',
         slug: 'high-protein-chocolate-oats',
+        sku: 'NTZ-OATS-CHOC-001',
         category: 'Breakfast Cereals',
         subCategory: 'Oats',
         image: '/images/products/1.jpg',
+        images: [
+            '/images/products/1.jpg',
+            '/images/products/1.jpg',
+            '/images/products/1.jpg',
+            '/images/products/1.jpg'
+        ],
         description: 'Rolled Oats enriched with Vegan Protein Blend, Cocoa, and premium Nuts & Seeds. A perfect high-protein breakfast.',
         origin: 'India',
         certifications: ['FSSAI', 'ISO 22000'],
@@ -50,7 +61,9 @@ export const products: Product[] = [
             shelfLife: '12 Months',
             moq: '500 kg',
             packaging: 'Pouches / Boxes',
-            netWeight: '1kg / 500g'
+            netWeight: '1kg / 500g',
+            hsCode: '1904.10',
+            casePack: '12 x 1kg'
         },
         goals: ['Muscle Gain', 'Energy'],
         ingredients: 'Rolled Oats, Vegan Protein Blend (Texurised Soy Protein & Soy Protein Isolate), Nuts Fruit & Seeds(Almonds, Raisins, Chia seeds, Pumpkin Seeds), Jaggery Powder, Cocoa Solids, Natural Identical Flavour(Chocolate), Pink Salt, Antioxidant(INS 320). Contains Added Identical Flavour (Chocolate)',

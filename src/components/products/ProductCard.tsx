@@ -1,8 +1,9 @@
 'use client';
 
+import Link from 'next/link';
 import Image from 'next/image';
 import { Product } from '@/data/products';
-import { ArrowRight, Globe, Heart } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface ProductCardProps {
     product: Product;
@@ -13,7 +14,10 @@ export default function ProductCard({ product }: ProductCardProps) {
     const nutritionEntries = Object.entries(product.nutrition).slice(0, 3);
 
     return (
-        <div className="group h-full flex flex-col bg-white rounded-2xl border border-gray-200 hover:border-primary overflow-hidden transition-all duration-300 ">
+        <Link
+            href={`/products/${product.slug}`}
+            className="group h-full flex flex-col bg-white rounded-2xl border border-gray-200 hover:border-primary overflow-hidden transition-all duration-300"
+        >
             {/* Image Section */}
             <div className="relative h-full w-full overflow-hidden">
                 <Image
@@ -66,12 +70,12 @@ export default function ProductCard({ product }: ProductCardProps) {
 
                 {/* Action */}
                 <div className="mt-auto">
-                    <button className="w-full inline-flex items-center justify-center px-8 py-3 rounded-full bg-primary text-neutral-900 font-medium text-lg hover:bg-primary/80 transition-all duration-300 cursor-pointer">
-                        <span>Request Inquiry</span>
+                    <span className="w-full inline-flex items-center justify-center px-8 py-3 rounded-full bg-primary text-neutral-900 font-medium text-lg hover:bg-primary/80 transition-all duration-300 cursor-pointer">
+                        <span>View Details</span>
                         <ArrowRight className="w-4 h-4" />
-                    </button>
+                    </span>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 }
