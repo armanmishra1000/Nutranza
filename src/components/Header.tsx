@@ -173,7 +173,7 @@ export default function Header() {
 
     return (
         <header
-            className="sticky top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/80 backdrop-blur-md shadow-sm py-4 border-b border-gray-100/50"
+            className="sticky top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#EBE6DE] py-4 font-heading2"
         >
             <div className="container">
                 <div className="flex items-center justify-between gap-8">
@@ -200,7 +200,7 @@ export default function Header() {
                                 <Link
                                     key={link.name}
                                     href={link.href}
-                                    className={`font-medium transition-colors duration-200 relative group text-base ${isActiveLink(link.href) ? "text-secondary" : "text-black hover:text-secondary"
+                                    className={` transition-colors duration-200 relative group text-2xl tracking-wider ${isActiveLink(link.href) ? "text-secondary" : "text-neutral-900 hover:text-secondary"
                                         }`}
                                 >
                                     {link.name}

@@ -16,6 +16,7 @@
 
   --font-sans: var(--font-opensans);
   --font-heading: var(--font-quicksand);
+  --font-heading2: var(--font-boogaloo);
   /* Switched generally to Quicksand for headings */
 
   --color-primary: #ffbf0f;
@@ -46,8 +47,9 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-quicksand), sans-serif;
+  font-family: var(--font-boogaloo), sans-serif;
   font-weight: 700;
+  letter-spacing: 0.1em;
   /* Bold/Heavy specific for Premium look */
 }
 
