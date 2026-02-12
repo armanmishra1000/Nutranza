@@ -1,6 +1,5 @@
 import HeroSlider from "@/components/home/HeroSlider";
 import BrandAmbassador from "@/components/home/BrandAmbassador";
-import AboutSection from "@/components/home/AboutSection";
 import ProductShowcase from "@/components/home/ProductShowcase";
 import CTASection from "@/components/home/CTASection";
 import FeaturesSection from "@/components/home/FeaturesSection";

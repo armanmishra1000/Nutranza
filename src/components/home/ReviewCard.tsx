@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Review } from "@/data/reviews";
 import { Quote } from "lucide-react";
 
