@@ -1,4 +1,5 @@
 import HeroSection from "@/components/home/HeroSection";
+import MarqueeSection from "@/components/home/MarqueeSection";
 import BrandAmbassador from "@/components/home/BrandAmbassador";
 import ProductShowcase from "@/components/home/ProductShowcase";
 import CTASection from "@/components/home/CTASection";
@@ -12,6 +13,7 @@ export default function Home() {
   return (
     <main className="bg-white block">
       <HeroSection />
+      <MarqueeSection />
       <FeaturesSection />
       <ShopByCategory />
       <WaveSeparator

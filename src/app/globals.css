@@ -20,13 +20,35 @@
   --font-boogaloo: var(--font-boogaloo);
   --font-helvetica: var(--font-helvetica-neue);
   --font-roca: var(--font-roca-one);
-  /* Switched generally to Quicksand for headings */
 
   --color-primary: #ffbf0f;
   --color-secondary: #ff660f;
   --color-accent: #442211;
   --color-gold: #D4AF37;
-  /* New Gold Accent */
+
+  /* Marquee Animations */
+  --animate-marquee-left: marquee-left var(--marquee-duration, 30s) linear infinite;
+  --animate-marquee-right: marquee-right var(--marquee-duration, 30s) linear infinite;
+
+  @keyframes marquee-left {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes marquee-right {
+    from {
+      transform: translateX(-100%);
+    }
+
+    to {
+      transform: translateX(0);
+    }
+  }
 }
 
 /* Enforcing Light Mode for Premium Feel */
@@ -51,8 +73,6 @@ h4,
 h5,
 h6 {
   font-family: var(--font-roca-one), sans-serif;
-  /* letter-spacing: 0.1em; */
-  /* Bold/Heavy specific for Premium look */
 }
 
 /* Custom Utilities for Premium Shadows/Gradients */
