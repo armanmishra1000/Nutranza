@@ -110,7 +110,7 @@ export default function Header() {
                             <div className="flex-1 flex justify-end">
                                 <Link
                                     href="tel:+1234567890"
-                                    className="flex items-center gap-2 bg-secondary text-white px-5 py-2 rounded-full font-medium hover:bg-secondary/90 transition-all duration-300 text-lg focus:outline-none"
+                                    className="flex items-center gap-2 bg-secondary text-white px-5 py-2 rounded-full font-medium hover:bg-secondary/90 transition-all duration-300 text-lg font-roca focus:outline-none"
                                 >
                                     <Phone className="w-5 h-5" />
                                     <span>Call Now</span>

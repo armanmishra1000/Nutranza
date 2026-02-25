@@ -35,15 +35,16 @@ export default function FeaturesSection() {
 
                 <div className="container relative z-10">
                     {/* Header */}
-                    <div className="flex flex-col gap-8 lg:text-left text-center">
-                        <div className="flex items-center justify-center lg:justify-start gap-2 text-lg text-white uppercase font-medium font-roca">
-                            <Heart className="w-4 h-4 fill-white" />
+                    <div className="flex flex-col gap-8 text-center">
+                        <div className="flex items-center justify-center gap-2 text-lg text-white uppercase font-medium font-roca">
+                            <Heart className="w-5 h-5 fill-white" />
                             <span>Here when you need us</span>
                         </div>
-                        <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white font-black ">
-                            Why choose Nutranza for your health
+                        <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white">
+                            <span className="font-black">Why choose Nutranza</span>{" "}<br />
+                            <span>for your health</span>
                         </h2>
-                        <p className="text-base sm:text-xl font-medium text-white max-w-4xl">
+                        <p className="text-base sm:text-xl font-medium text-white max-w-4xl mx-auto">
                             Your trusted partner for premium organic, plant-based foods. We deliver certified excellence, complete transparency, and export-ready solutions to fuel healthier markets worldwide.
                         </p>
                     </div>
@@ -58,10 +59,10 @@ export default function FeaturesSection() {
                                 <div className="mb-6 text-white group-hover:scale-110 transition-transform duration-300 origin-left">
                                     <feature.icon className="w-10 h-10" strokeWidth={1} />
                                 </div>
-                                <h3 className="text-xl md:text-2xl font-serif text-white mb-3">
+                                <h3 className="text-xl md:text-2xl text-white mb-3">
                                     {feature.title}
                                 </h3>
-                                <p className="text-white leading-relaxed font-light text-base">
+                                <p className="text-white leading-relaxed text-base">
                                     {feature.description}
                                 </p>
                             </div>

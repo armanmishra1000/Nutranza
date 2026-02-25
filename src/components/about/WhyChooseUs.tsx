@@ -1,100 +1,111 @@
-"use client";
-
-import { Award, DollarSign, Truck, TrendingUp, Shield, Package, Headphones } from "lucide-react";
+import React from "react";
+import { Globe } from "lucide-react";
+import WaveDecoration from "../ui/WaveDecoration";
 
 interface Strength {
     title: string;
     description: string;
-    icon: React.ComponentType<{ className?: string }>;
 }
 
 export default function WhyChooseUs() {
     const strengths: Strength[] = [
         {
-            title: "Global Market Access",
-            description: "Direct access to premium international markets and distribution networks.",
-            icon: TrendingUp,
+            title: "Certified Global Standards",
+            description: "Manufactured in state-of-the-art facilities with ISO, GMP, and HACCP certifications, ensuring international food safety and uncompromised quality for every shipment.",
         },
         {
-            title: "Certified Quality",
-            description: "ISO 22000, HACCP, and organic certifications for guaranteed excellence.",
-            icon: Shield,
+            title: "End-to-End Export Logistics",
+            description: "Streamlined global distribution networks with transparent tracking, guaranteeing on-time delivery across borders without supply chain disruptions.",
         },
         {
-            title: "Competitive Pricing",
-            description: "Factory-direct pricing with transparent cost structures.",
-            icon: DollarSign,
+            title: "Private Label & Custom Formulation",
+            description: "Tailored manufacturing solutions from custom recipes to localized packaging, empowering your brand with premium, market-ready healthcare and food products.",
         },
         {
-            title: "Reliable Logistics",
-            description: "On-time delivery with optimized supply chain management.",
-            icon: Truck,
+            title: "Regulatory & Customs Expertise",
+            description: "Seamless navigation of complex international trade laws, vital documentation, and destination-specific compliance to ensure smooth, hassle-free customs clearance.",
         },
         {
-            title: "Product Innovation",
-            description: "Continuous R&D for market-leading healthcare food products.",
-            icon: Award,
-
+            title: "Scalable B2B Pricing Structure",
+            description: "Factory-direct sourcing with flexible Minimum Order Quantities (MOQs) and transparent cost structures, maximizing your profit margins in competitive markets.",
         },
         {
-            title: "Flexible MOQ",
-            description: "Scalable order quantities to match your business needs.",
-            icon: Package,
-        },
-        {
-            title: "Regulatory Expertise",
-            description: "Complete compliance with international food import regulations.",
-            icon: Shield,
-        },
-        {
-            title: "Dedicated Support",
-            description: "B2B-focused account management and responsive customer service.",
-            icon: Headphones,
+            title: "Premium & Trending Portfolio",
+            description: "Access a highly sought-after range of health foods—from high-protein Peanut Butter and Oats to authentic Shilajit—developed through continuous R&D.",
         },
     ];
 
     return (
-        <section className="relative md:py-20 py-16 overflow-hidden">
-            <div className="container">
-                {/* Section Header */}
-                <div className="text-center mb-12 space-y-5">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900">
-                        Your Strategic Export Partner
-                    </h2>
-                    <p className="text-lg md:text-xl leading-relaxed text-neutral-700 max-w-2xl mx-auto">
-                        Your success is our priority. We deliver more than products—we deliver partnership, reliability, and growth.
-                    </p>
-                </div>
+        <section className="w-full overflow-hidden relative">
+            {/* Top Wave Transitioning from Gradient Section */}
+            <WaveDecoration position="top" color="text-[#5C6AAE]" className="bg-[#f9e2a3]" />
 
-                {/* Bento Grid Layout */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-fr">
-                    {strengths.map((strength, index) => {
-                        const Icon = strength.icon;
+            <div className="md:py-20 py-16 bg-[#5C6AAE] relative z-10 -my-0.5">
+                <div className="container text-white relative z-10">
+                    {/* Section Header */}
+                    <div className="flex flex-col gap-4 text-center items-center mb-6">
+                        <div className="flex items-center gap-2 text-lg text-white uppercase font-medium font-roca">
+                            <Globe className="w-5 h-5" />
+                            <span>Why Choose NutranZa</span>
+                        </div>
+                        <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white mt-4">
+                            <span>Your Trusted</span>{" "}<br />
+                            <span className="font-black">Export Partner</span>
+                        </h2>
+                        <p className="text-lg md:text-xl font-medium leading-relaxed text-white max-w-3xl mx-auto mt-4">
+                            We provide B2B distributors with unmatched inventory reliability, transparent export logistics, and uncompromising quality standards to keep you ahead of international market demand.
+                        </p>
+                    </div>
 
-                        return (
-                            <div
-                                key={index}
-                                className="p-6 rounded-2xl transition-all duration-300 hover:shadow-sm group flex flex-col items-start justify-start relative overflow-hidden"
-                            >
-                                {/* Icon */}
-                                <div className="inline-flex p-3 rounded-xl mb-4 transition-colors relative z-10 bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white">
-                                    <Icon className="w-6 h-6 transition-transform duration-300 group-hover:scale-110" />
-                                </div>
+                    {/* Bento Grid Layout */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-[minmax(280px,auto)] mt-16">
+                        {strengths.map((strength, index) => {
+                            let gridClass = "col-span-1";
+                            if (index === 0) {
+                                gridClass = "lg:col-span-2"; // Wide on laptop & desktop
+                            } else if (index === 3 || index === 4) {
+                                gridClass = "lg:col-span-2 xl:col-span-1"; // Wide on laptop, normal on desktop
+                            } else if (index === 5) {
+                                gridClass = "xl:col-span-2"; // Normal on laptop, wide on desktop
+                            }
 
-                                {/* Content */}
-                                <div className="relative z-10 space-y-2 mt-auto">
-                                    <h3 className="font-bold text-lg text-neutral-900 group-hover:text-primary transition-colors">
-                                        {strength.title}
-                                    </h3>
-                                    <p className="text-sm text-neutral-600 leading-relaxed">
+                            return (
+                                <div
+                                    key={index}
+                                    className={`border border-[#e5e7eb] bg-white p-6 rounded-3xl transition-all duration-300 flex flex-col w-full h-full ${gridClass}`}
+                                >
+                                    {/* Top: Title & Number */}
+                                    <div className="flex justify-between items-start w-full gap-4">
+                                        <h3 className="text-xl md:text-2xl text-primary">
+                                            {strength.title}
+                                        </h3>
+                                        <span
+                                            className="text-6xl shrink-0"
+                                            style={{
+                                                WebkitTextStroke: "1px rgba(255, 191, 15, 0.4)",
+                                                color: "transparent"
+                                            }}
+                                        >
+                                            {String(index + 1).padStart(2, '0')}
+                                        </span>
+                                    </div>
+
+                                    {/* Separator */}
+                                    <hr className="border-primary/40 mt-6 mb-8 w-full" />
+
+                                    {/* Bottom: Description */}
+                                    <p className="text-neutral-900 leading-relaxed mt-auto">
                                         {strength.description}
                                     </p>
                                 </div>
-                            </div>
-                        );
-                    })}
+                            );
+                        })}
+                    </div>
                 </div>
             </div>
+
+            {/* Bottom Wave Transitioning into Footer */}
+            <WaveDecoration position="bottom" color="text-[#5C6AAE]" className="bg-[#EBE6DE]" />
         </section>
     );
 }

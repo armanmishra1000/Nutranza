@@ -21,7 +21,7 @@ const Footer = () => {
                         <p className="text-base font-medium leading-relaxed max-w-xs text-neutral-900">
                             Nutranza provides trusted, compassionate healthcare for families through clinic, pharmacy, and telehealth services.
                         </p>
-                        <div className="flex gap-4 pt-2">
+                        <div className="flex gap-4">
                             <Link href="#" className="p-3 group border border-secondary rounded-full hover:bg-secondary hover:border-secondary transition-all duration-300" aria-label="Facebook">
                                 <Facebook size={22} strokeWidth={1.5} className="text-secondary group-hover:text-white" />
                             </Link>
@@ -85,7 +85,7 @@ const Footer = () => {
                         <p className="text-base font-medium text-neutral-900">
                             © {new Date().getFullYear()} Nutranza. All rights reserved.
                         </p>
-                        <div className="flex items-center gap-1 text-base font-medium text-neutral-600">
+                        <div className="flex items-center gap-1 text-base font-medium text-neutral-900">
                             <span>Powered by</span>
                             <Link href="https://apexture.in/" target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline font-semibold ml-1">
                                 Apexture Pvt. Ltd.

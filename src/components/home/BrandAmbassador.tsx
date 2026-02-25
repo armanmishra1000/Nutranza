@@ -27,17 +27,17 @@ export default function BrandAmbassador() {
                                 </h2>
 
                                 {/* Subhead / Value Prop */}
-                                <p className="text-base sm:text-xl font-medium text-white max-w-xl">
+                                <p className="text-lg md:text-xl font-medium leading-relaxed text-white max-w-xl">
                                     Unlock exclusive access to premium healthcare food products.
                                     Manufactured for excellence, exported to the world.
                                 </p>
 
                                 {/* Offer / Incentive */}
                                 <div className="flex flex-col items-center lg:items-start space-y-1">
-                                    <span className="text-white font-bold text-lg">
+                                    <span className="text-white font-medium text-lg">
                                         Start your B2B journey today
                                     </span>
-                                    <span className="text-primary font-semibold">
+                                    <span className="text-primary font-medium">
                                         Distributors • Retailers • Wholesalers
                                     </span>
                                 </div>

@@ -6,7 +6,7 @@ export default function ExportExperience() {
     return (
         <section className="md:py-20 py-16 ">
             <div className="container">
-                <div className="bg-neutral-900 md:p-10 p-4 rounded-3xl">
+                <div className="bg-accent md:p-10 p-4 rounded-3xl">
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         {/* Left: World Map Visualization */}
@@ -15,12 +15,13 @@ export default function ExportExperience() {
                         </div>
 
                         {/* Right: Content */}
-                        <div className="space-y-6 order-1 lg:order-2 text-center lg:text-left">
-                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-                                Global Footprints
+                        <div className="space-y-8 order-1 lg:order-2 text-center lg:text-left">
+                            <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-primary">
+                                <span>Global</span>{" "}
+                                <span className="font-black">Footprints</span>
                             </h2>
 
-                            <div className="space-y-4 text-lg md:text-xl leading-relaxed text-neutral-400">
+                            <div className="space-y-6 text-lg md:text-xl font-medium leading-relaxed text-white">
                                 <p>
                                     Today, we take pride in supplying our products to major retailers worldwide,
                                     including the USA, Europe, Canada, UAE, Africa, Asian Countries, and beyond.
