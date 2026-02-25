@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import CountUp from "react-countup";
 
 const categories = [
     {
@@ -25,33 +24,6 @@ const categories = [
     },
 ];
 
-const stats = [
-    {
-        id: 1,
-        value: 50,
-        suffix: '+',
-        label: 'Countries Served'
-    },
-    {
-        id: 2,
-        value: 500,
-        suffix: '+',
-        label: 'B2B Partners'
-    },
-    {
-        id: 3,
-        value: 10,
-        suffix: 'M+',
-        label: 'Units Exported'
-    },
-    {
-        id: 4,
-        value: 15,
-        suffix: '+',
-        label: 'Years Experience'
-    }
-];
-
 export default function ShopByCategory() {
     const bgColors = [
         "bg-[#FFE5EC]", // Pinkish
@@ -65,8 +37,8 @@ export default function ShopByCategory() {
         <section className="bg-[#FEFDF7] py-16 lg:py-20 relative overflow-hidden">
             <div className="container relative z-10">
                 <div>
-                    <h2 className="text-center text-primary text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black pb-4 lg:pb-16">
-                        Shop by Category
+                    <h2 className="text-center text-primary text-4xl sm:text-5xl lg:text-6xl xl:text-7xl pb-4 lg:pb-16">
+                        Shop by <span className="font-black">Category</span>
                     </h2>
 
                     {/* Categories - Curved Layout */}
@@ -96,7 +68,7 @@ export default function ShopByCategory() {
                                         </div>
                                     </div>
 
-                                    <p className="text-center text-sm md:text-lg font-medium text-neutral-900">
+                                    <p className="text-center text-lg md:text-xl font-medium leading-relaxed text-neutral-900">
                                         {category.name}
                                     </p>
                                 </div>
@@ -104,29 +76,6 @@ export default function ShopByCategory() {
                         })}
                     </div>
                 </div>
-
-                {/* Stats */}
-                {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-8 mt-24 lg:mt-32">
-                    {stats.map((stat) => (
-                        <div
-                            key={stat.id}
-                            className="flex flex-col items-center justify-center text-center lg:p-6 p-4 bg-white rounded-2xl shadow-sm border border-neutral-100/50 hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
-                        >
-                            <div className="text-3xl lg:text-4xl xl:text-5xl font-semibold text-primary mb-2 flex items-baseline font-roca">
-                                <CountUp
-                                    end={stat.value}
-                                    duration={2.5}
-                                    enableScrollSpy
-                                    scrollSpyOnce
-                                />
-                                <span className="text-primary">{stat.suffix}</span>
-                            </div>
-                            <p className="text-base font-medium text-neutral-900 font-quicksand">
-                                {stat.label}
-                            </p>
-                        </div>
-                    ))}
-                </div> */}
             </div>
         </section>
     );

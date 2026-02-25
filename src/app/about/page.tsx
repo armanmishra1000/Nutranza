@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import HeroSection from "@/components/about/HeroSection";
-import CompanyHistory from "@/components/about/CompanyHistory";
+import WhoWeAreSection from "@/components/about/WhoWeAreSection";
+import OurMissionTeamSection from "@/components/about/OurMissionTeamSection";
 import ExportExperience from "@/components/about/ExportExperience";
 
 import WhyChooseUs from "@/components/about/WhyChooseUs";
@@ -19,10 +20,13 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
     return (
-        <main className="min-h-screen bg-white">
+        <main className="min-h-screen">
             <HeroSection />
-            <CompanyHistory />
-            <ExportExperience />
+            <OurMissionTeamSection />
+            <div style={{ background: "linear-gradient(#f3cf6e, #f9e2a3 50%)" }}>
+                <WhoWeAreSection />
+                <ExportExperience />
+            </div>
             {/* <QualityCertifications /> */}
             <WhyChooseUs />
         </main>

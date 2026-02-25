@@ -27,7 +27,7 @@ export default function WorldMap() {
                     src="/assets/world-map.svg"
                     alt="World Map"
                     fill
-                    className="object-contain opacity-80"
+                    className="object-contain"
                     priority
                 />
             </div>
@@ -63,7 +63,7 @@ export default function WorldMap() {
                                 d={`M ${conn.start.x} ${conn.start.y} Q ${midX} ${midY + curveOffset} ${conn.end.x} ${conn.end.y}`}
                                 fill="none"
                                 stroke="url(#gradient)"
-                                strokeWidth="2"
+                                strokeWidth="4"
                                 strokeDasharray="6 4"
                                 initial={{ pathLength: 0, opacity: 0 }}
                                 whileInView={{ pathLength: 1, opacity: 1 }}
@@ -74,7 +74,7 @@ export default function WorldMap() {
                             <motion.circle
                                 cx={conn.end.x}
                                 cy={conn.end.y}
-                                r="4"
+                                r="5"
                                 className="fill-secondary"
                                 initial={{ scale: 0 }}
                                 whileInView={{ scale: 1 }}
@@ -85,7 +85,7 @@ export default function WorldMap() {
                             <circle
                                 cx={conn.start.x}
                                 cy={conn.start.y}
-                                r="3"
+                                r="6"
                                 className="fill-secondary"
                             />
                         </g>
