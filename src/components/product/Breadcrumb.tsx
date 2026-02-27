@@ -18,7 +18,7 @@ export default function Breadcrumb({ productName, category }: BreadcrumbProps) {
         <nav className="" aria-label="Breadcrumb">
             <Link
                 href={`/categories/${categorySlug}`}
-                className="inline-flex items-center gap-2 p-2.5 bg-accent font-bold text-xs text-primary rounded-full transition-colors uppercase shadow-sm"
+                className="inline-flex items-center gap-2 p-2.5 bg-accent font-bold text-xs text-primary rounded-full transition-colors uppercase focus:outline-none"
             >
                 <ChevronLeft size={20} />
                 Nutranza {category}

@@ -15,7 +15,7 @@ export default function SimilarProducts({ currentProduct }: SimilarProductsProps
                 (p.category === currentProduct.category ||
                     p.subCategory === currentProduct.subCategory)
         )
-        .slice(0, 4);
+        .slice(0, 3);
 
     if (similarProducts.length === 0) {
         return null;
@@ -34,7 +34,7 @@ export default function SimilarProducts({ currentProduct }: SimilarProductsProps
                     View All
                 </Link>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {similarProducts.map((product) => (
                     <ProductCard key={product.id} product={product} />
                 ))}
