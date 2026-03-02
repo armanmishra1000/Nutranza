@@ -55,9 +55,9 @@ export default function BrandAmbassador() {
                             </div>
 
                             <div className="w-full lg:w-2/5 relative z-0 order-first lg:order-last">
-                                <div className="lg:absolute xl:-bottom-12 lg:-bottom-15 right-0 xl:h-[600px] lg:h-[550px] h-[450px] w-full">
+                                <div className="lg:absolute xl:-bottom-12 lg:-bottom-12 right-0 xl:h-[600px] lg:h-[550px] h-[450px] w-full">
                                     <Image
-                                        src="/assets/images/brand-ambassador-1.png"
+                                        src="/assets/images/Untitled-design.png"
                                         alt="Nutranza Brand Ambassador"
                                         fill
                                         className="object-contain"
